@@ -30,24 +30,33 @@ public class Product {
 	}
 
 	public void getQuantity() throws SQLException {
-
+        
+		Scanner scan = new Scanner(System.in);
+		
 		UserConnection userconnection = new UserConnection();
 		Connection connection = userconnection.getUserConnection();
-
+        
+		System.out.println(" ********************* ");
+		System.out.println("How Many Products You Want....");
+        int num=scan.nextInt();
+        
 		System.out.println("Check Product Quantity");
-
+        
 		String s = "select product_id,product_name,product_description,product_quantity from products where product_id=?";
-
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter Product ID");
-		String id = scan.next();
-
 		PreparedStatement pps = connection.prepareStatement(s);
 
+		for(int i=1;i<=num;i++) {
+        	 
+         
+		
+		System.out.println("Enter Product ID:->> ");
+		String id = scan.next();
+
+		
 		pps.setString(1, id);
 
 		ResultSet rs = pps.executeQuery();
-
+        
 		while (rs.next()) {
 
 			System.out.println("Product Id :-> " + rs.getString(1));
@@ -55,7 +64,11 @@ public class Product {
 			System.out.println("Product Description :-> " + rs.getString(3));
 			System.out.println("Product Quantity :-> " + rs.getString(4));
 		}
-
+		}
+		
+	   
 	}
+	
+	
 
 }

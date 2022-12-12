@@ -14,18 +14,24 @@ public class Cart {
 
 		UserConnection userconnection = new UserConnection();
 		Connection connection = userconnection.getUserConnection();
-
+        System.out.println(" **************************** ");
 		System.out.println("Add Product To Cart");
+		Scanner scan = new Scanner(System.in);
+		int count=scan.nextInt();
+		for(int i=1;i<=count;i++) {
+			
+		
+		
 		String s = "select product_id,product_name,product_description,product_quantity,product_price from products where product_id=?";
 
-		Scanner scan = new Scanner(System.in);
+		
 		System.out.println("Enter Product ID");
 		String id = scan.next();
 
 		PreparedStatement pps = connection.prepareStatement(s);
 
 		pps.setString(1, id);
-		;
+		
 
 		ResultSet rs = pps.executeQuery();
         ArrayList<String> al=new ArrayList();
@@ -41,7 +47,7 @@ public class Cart {
 
 			
 		}
-
+		}
 	}
 
 }
