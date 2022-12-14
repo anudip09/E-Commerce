@@ -8,6 +8,7 @@ public class TestProgram {
 
 		AllInOne allinone = new AllInOne();
 		allinone.allInOne();
+		
 
 	}
 

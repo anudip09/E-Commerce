@@ -10,13 +10,12 @@ public class AllInOne {
 		Scanner scan = new Scanner(System.in);
 
 		while (true) {
-			System.out.println("< < < Welcome To Z Store > > >");
-			System.out.println(" Press 1 For Registration ");
-			System.out.println(" Press 2 For Login ");
-			//System.out.println(" Press 3 For Product List ");
-			//System.out.println(" Press 4 For To Check Quantity & Price ");
-			//System.out.println(" Press 5 For To Add Product In Cart ");
-			System.out.println(" Press 6 For Exit ");
+			System.out.println("\t\t\t\t\t\t< < < Welcome To Z Store > > >");
+			System.out.println("\t\t\t Press 1 For Registration ");
+			System.out.println("\t\t\t Press 2 For Login ");
+			System.out.println("\t\t\t Press 3 For Log Out ");
+			System.out.println("\t\t\t Press 4 For Admin Login ");
+			System.out.println("\t\t\t Press 5 For Get Product List In Ascending Order.");
 
 			int choice = scan.nextInt();
 
@@ -31,23 +30,34 @@ public class AllInOne {
 			case 2:
 				UserLogin userlogin = new UserLogin();
 				userlogin.getLogin();
+				
 				break;
+				
 			case 3:
-				// Product product=new Product();
-				// .getProductDetails();
+				System.out.println("==============================================================================================================================");
+				
+				System.out.println("\t\t\t\t\t\t\t\t * * * Thanks For Visting Our Store & Please Visit Again... * * * ");
+				
+				System.out.println("==============================================================================================================================");
+				
+				System.exit(0);
+				
 				break;
 
+				
 			case 4:
-				Product productquantity = new Product();
-				productquantity.getQuantity();
+				
+				Admin admin=new Admin();
+				admin.getHistory();
+				
 				break;
+				
 			case 5:
-				// Cart cart=new Cart();
-				// cart.addToCart();
+				
+				AscOrder ascorder=new AscOrder();
+				ascorder.getAscOrder();
+				
 				break;
-			case 6:
-				System.out.println(" * * * Thanks For Visting Our Store & Please Visit Again... * * * ");
-				System.exit(0);
 
 			}
 
