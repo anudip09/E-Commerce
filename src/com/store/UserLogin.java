@@ -13,6 +13,8 @@ public class UserLogin {
 	String username;
 
 	public void getLogin() throws SQLException {
+		
+		// Make The Object Of UserConnection Class
 		UserConnection userconnection = new UserConnection();
 		// Make The Connection
 		Connection connection = userconnection.getUserConnection();
@@ -24,15 +26,15 @@ public class UserLogin {
 		System.out.println("Enter Your Password");
 
 		String password = scan.nextLine();
-		// mysql query
-		// String sql = ;
-
+	    
+		// By Using PrepareStatement
 		PreparedStatement stm = connection.prepareStatement("select * from user where user_name=? and user_password=?");
 
 		stm.setString(1, username);
 		stm.setString(2, password);
 
 		ResultSet rs = stm.executeQuery();
+		
 
 		if (rs.next()) {
 
@@ -40,9 +42,7 @@ public class UserLogin {
 				Product product = new Product();
 				product.getProductDetails();
 				product.getQuantity(username);
-				// Cart cart = new Cart();
-				// cart.addToCart();
-
+				
 			}
 		} else {
 			throw new InvalidInputException(" < < < < < Invalid Username Or Password..... > > > > > ");

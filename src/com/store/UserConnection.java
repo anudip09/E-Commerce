@@ -7,11 +7,13 @@ import java.sql.SQLException;
 public class UserConnection {
 	
 	Connection connection=null;
-
+ 
 	public Connection getUserConnection() throws SQLException{
-
+        
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			// Add The Driver 
+			Class.forName("com.mysql.cj.jdbc.Driver"); 
+			// Make The Connection
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/store", "root", "root");
 
 		} catch (ClassNotFoundException e) {

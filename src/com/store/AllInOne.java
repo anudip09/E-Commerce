@@ -10,6 +10,7 @@ public class AllInOne {
 		Scanner scan = new Scanner(System.in);
 
 		while (true) {
+			
 			System.out.println("\t\t\t\t\t\t< < < Welcome To Z Store > > >");
 			System.out.println("\t\t\t Press 1 For Registration ");
 			System.out.println("\t\t\t Press 2 For Login ");

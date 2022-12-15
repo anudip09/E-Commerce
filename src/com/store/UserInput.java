@@ -11,10 +11,12 @@ public class UserInput {
 	Connection con = null;
 
 	public void insertUserInput(String userName, String userPassword, String userMobileNumber) {
-           //Make The Object Of UserConnection Class
+           
 		try {
+			//Make The Object Of UserConnection Class
 			UserConnection userconnection = new UserConnection();
 			con = userconnection.getUserConnection();
+			// By Using Prepare Statement 
 			prs = con.prepareStatement("insert into user(user_name,user_password,user_mobileNumber)values(?,?,?)");
 			prs.setString(1, userName);
 			prs.setString(2, userPassword);
@@ -38,7 +40,8 @@ public class UserInput {
 		String userPassword = scan.next();
 		System.out.println("Enter User Mobile Number:>> ");
 		String userMobileNumber = scan.next();
-
+        
+		// Make The Object Of UserInput Class
 		UserInput userinput = new UserInput();
 		userinput.insertUserInput(userName, userPassword, userMobileNumber);
 

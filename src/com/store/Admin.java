@@ -13,8 +13,11 @@ public class Admin {
 	static String password = "Pass@123";
 
 	public void getHistory() throws SQLException {
-
+        
+		// Make The Object Of UserConnection
+		
 		UserConnection userconnection = new UserConnection();
+		
 		Connection connection = userconnection.getUserConnection();
 
 		String sql = "SELECT * FROM store.customer_history;";

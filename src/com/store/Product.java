@@ -13,7 +13,8 @@ public class Product {
 	static int buyQuantity;
 
 	public static void getProductDetails() throws SQLException {
-
+        
+		// Make The Object UserConnection Class
 		UserConnection userconnection = new UserConnection();
 		Connection connection = userconnection.getUserConnection();
 
@@ -35,8 +36,10 @@ public class Product {
 	public static void getQuantity(String name) throws SQLException {
 
 		Scanner scan = new Scanner(System.in);
+		
+		// Make The Object Of UserLogin Class
 		UserLogin login = new UserLogin();
-
+        // Make The Object Of UserConnection Class
 		UserConnection userconnection = new UserConnection();
 		Connection connection = userconnection.getUserConnection();
 
@@ -75,11 +78,11 @@ public class Product {
 				
 				System.out.println("How Many Product Quantity You Want...");
 
-				int req = scan.nextInt();
+				int req = scan.nextInt();           // 2
 
-				int temp = rs.getInt(5) * req;
+				int temp = rs.getInt(5) * req;      // price*2=200*2=400
 
-				int quantity = rs.getInt(4) - req;
+				int quantity = rs.getInt(4) - req;  //Product quantity-2= 10-2  =8
                 
 				System.out.println("==============================================================================================================================");
 				
@@ -89,8 +92,8 @@ public class Product {
 
 				if (response.equalsIgnoreCase("Yes")) {
 
-					amount = amount + temp;
-					buyQuantity = buyQuantity + req;
+					amount = amount + temp;           // 0+400 = 400
+					buyQuantity = buyQuantity + req;  // 0+2   = 2
 
 					String update = "update products set product_quantity =? where product_id=?";
 
@@ -99,9 +102,11 @@ public class Product {
 					pps3.setInt(1, quantity);
 					pps3.setString(2, rs.getString(1));
 					pps3.executeUpdate();
+					
 					System.out.println("Total Amount :->> "+amount);
 
 					String history = "insert into customer_history(user_name,product_id,product_name,product_price,product_quantity) values (?,?,?,?,?)";
+					
 					PreparedStatement pps4 = connection.prepareStatement(history);
 					pps4.setString(1, name);
 					pps4.setString(2, rs.getString(1));
